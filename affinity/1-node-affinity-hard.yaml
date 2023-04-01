@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   name: node-affinity-hard
 spec:
-  replicas: 30
+  replicas: 60
   selector:
     matchLabels:
       app: nginx
