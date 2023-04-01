@@ -1,4 +1,5 @@
 # Soft means that the scheduler will try to avoid placing a pod on a node that doesn’t match the selector, but it’s not required. If the scheduler can’t find a node without the selector then it will place the pod on a node that does have the selector.
+# # weight: 1 means that the scheduler will try to avoid placing a pod on a node that doesn’t match the selector, but it’s not required. If the scheduler can’t find a node without the selector then it will place the pod on a node that does have the selector.
 ---
 apiVersion: apps/v1
 kind: Deployment
