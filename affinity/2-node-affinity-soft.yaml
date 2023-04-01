@@ -1,0 +1,31 @@
+# Soft means that the scheduler will try to avoid placing a pod on a node that doesn’t match the selector, but it’s not required. If the scheduler can’t find a node without the selector then it will place the pod on a node that does have the selector.
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-affinity-soft
+spec:
+  replicas: 30
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: lifecycle
+                operator: In
+                values:
+                - Ec2OnDemand
