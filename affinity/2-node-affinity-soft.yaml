@@ -28,4 +28,4 @@ spec:
               - key: lifecycle
                 operator: In
                 values:
-                - Ec2OnDemand
+                - Ec2Spot
